@@ -36,6 +36,7 @@ public class HomeTests {
         sleep(3000);
         $("#subjectsWrapper").click();
         $("#subjectsContainer").setValue("M");
+
         sleep(3000);
         $("#state").click();
         $("#state").pressEnter();
