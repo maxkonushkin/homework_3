@@ -42,7 +42,6 @@ public class homework_3 {
         sleep(3000);
         $("#subjectsContainer").pressEnter();
         $("#hobbies-checkbox-1").click();
-
         $("[class=col-md-9 col-sm-12]").setValue("inf");
 
 
