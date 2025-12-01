@@ -40,6 +40,7 @@ public class HomeTests {
         $("#state").click();
         $("#state").pressEnter();
         sleep(3000);
+
         $("#subjectsContainer").pressEnter();
         $("#hobbies-checkbox-1").click();
         $("[class=col-md-9 col-sm-12]").setValue("inf");
