@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class homework_3 {
+public class HomeTests {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
