@@ -43,7 +43,6 @@ public class HomeTests {
         $("#subjectsContainer").pressEnter();
         $("#hobbies-checkbox-1").click();
         $("[class=col-md-9 col-sm-12]").setValue("inf");
-
         sleep(3000);
         $("#output #name").shouldHave(text("Alex"));
         $("#output #email").shouldHave(text("alex@egorov.com"));
