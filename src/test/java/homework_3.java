@@ -34,7 +34,6 @@ public class homework_3 {
         $("#subjectsContainer").setValue("Maths");
         $("#subjectsContainer").pressEnter();
         sleep(3000);
-
         $("#subjectsWrapper").click();
         $("#subjectsContainer").setValue("M");
         sleep(3000);
