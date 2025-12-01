@@ -12,7 +12,6 @@ public class HomeTests {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = false;
         Configuration.timeout = 1000; // default 4000
     }
 
@@ -21,7 +20,7 @@ public class HomeTests {
         open("/automation-practice-form");
         $("#firstName").setValue("Maks");
         $("#lastName").setValue("Konushkin");
-        $("#userEmail").setValue("myemail.com");
+        $("#userEmail").setValue("myemail@example.com");
         $("#userNumber").setValue("9173173687");
         $("#currentAddress").setValue("proizvodstvennai 13");
         $("#dateOfBirthInput").click();
@@ -30,10 +29,14 @@ public class HomeTests {
         $(".react-datepicker__month").$(byText("11")).click();
         $("#genterWrapper").$(byText("Male")).click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#subjectsContainer").click();
-        $("#subjectsContainer").setValue("Maths");
-        $("#subjectsContainer").pressEnter();
-        sleep(3000);
+        $("#state").click();
+        $(byText("Haryana")).click();
+        $("#city").click();
+        $(byText("Panipat")).click();
+        $("#submit").click();
+
+
+        sleep(9000);
         $("#subjectsWrapper").click();
         $("#subjectsContainer").setValue("M");
 
