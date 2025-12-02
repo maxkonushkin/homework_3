@@ -40,6 +40,7 @@ public class HomeTests {
         $("#subjectsInput").setValue("Computer Science").pressEnter();
         $("#uploadPicture").uploadFromClasspath("Cat.jpg");
         $("#submit").click();
+
         //Проверки:
         $(".table-responsive").$(byText("Student Name")).parent().shouldHave(text("Maks Konushkin"));
         $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text("myemail@example.com"));
