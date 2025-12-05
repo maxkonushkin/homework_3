@@ -20,7 +20,7 @@ public class RegistrationPage {
             genderWrapper = $("#genterWrapper"),
             uploadPicture = $("#uploadPicture"),
             calendareInput = $("#dateOfBirthInput"),
-            hobbiesWrapper = $("#HobbiesWrapper")
+            subjectsInput = $("#subjectsInput")
              ;
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -64,16 +64,26 @@ public class RegistrationPage {
         calendarComponent.setDate(day, mouth, year);
         return this;
     }
-    public RegistrationPage setHobbiesWrapper(){
-        $("#hobbiesWrapper").$(byText("Sports")).click();
+    public RegistrationPage setHobbiesWrapper(String value){
+        $("#hobbiesWrapper").$(byText(value)).click();
         return this;
     }
-    public RegistrationPage setSubjectsInput(){
-        $("#subjectsInput").setValue("Computer Science").pressEnter();
+    public RegistrationPage setSubjectsInput(String value){
+        subjectsInput.setValue(value).pressEnter();
         return this;
     }
     public RegistrationPage setSubmit() {
         $("#submit").click();
+        return this;
+    }
+    public RegistrationPage setState(String value) {
+        $("#state").click();
+        $(byText(value)).click();
+        return this;
+    }
+    public RegistrationPage setCity(String value) {
+        $("#city").click();
+        $(byText(value)).click();
         return this;
     }
 

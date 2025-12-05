@@ -22,21 +22,13 @@ public class HomeTests extends TestBase{
                 .setGender("Male")
                 .setDateOfBirth("11", "July", "1996")
                 .setUploadPicture()
-                .setSubjectsInput()
-                .setHobbiesWrapper()
-               // .setSubmit()
+                .setSubjectsInput("Computer Science")
+                .setHobbiesWrapper("Sports")
+                .setState("Haryana")
+                .setCity("Panipat")
+                .setSubmit()
                 ;
-        //Проверки:
-        sleep(3000);
-
-
-        $("#state").click();
-        $(byText("Haryana")).click();
-        $("#city").click();
-        $(byText("Panipat")).click();
-
-        $("#submit").click();
-
+        sleep(4000);
         //Проверки:
         registrationPage
                 .checkResult("Student Name", "Maks Konushkin")
@@ -49,7 +41,6 @@ public class HomeTests extends TestBase{
                 .checkResult("Picture", "Cat.jpg")
                 .checkResult("Address", "proizvodstvennai 13")
                 .checkResult("State and City", "Haryana Panipat")
-
         ;
 
     }
