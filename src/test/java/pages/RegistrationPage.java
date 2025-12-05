@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.TableResponsiveComp;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -24,6 +25,7 @@ public class RegistrationPage {
              ;
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    TableResponsiveComp tableResponsiveComp = new TableResponsiveComp();
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
@@ -88,12 +90,11 @@ public class RegistrationPage {
     }
 
 
-
-
     //Метод для проверки:
     public RegistrationPage checkResult(String key, String value){
         $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
         return this;
     }
+
 
 }
