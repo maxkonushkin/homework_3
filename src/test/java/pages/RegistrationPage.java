@@ -93,11 +93,5 @@ public class RegistrationPage {
         tableResponsiveComp.setDate(key, value);
         return this;
     }
-    //Метод для проверки:
-    //public RegistrationPage checkResult(String key, String value){
-    //    $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
-    //return this;
-    //}
-
 
 }
