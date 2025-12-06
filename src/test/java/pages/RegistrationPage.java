@@ -88,13 +88,16 @@ public class RegistrationPage {
         $(byText(value)).click();
         return this;
     }
+    public RegistrationPage checkResult(String key, String value) {
 
-
-    //Метод для проверки:
-    public RegistrationPage checkResult(String key, String value){
-        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
+        tableResponsiveComp.setDate(key, value);
         return this;
     }
+    //Метод для проверки:
+    //public RegistrationPage checkResult(String key, String value){
+    //    $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
+    //return this;
+    //}
 
 
 }
