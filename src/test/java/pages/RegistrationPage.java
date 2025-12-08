@@ -1,18 +1,14 @@
 package pages;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.TableResponsiveComp;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
-    private SelenideElement
+    private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
@@ -21,7 +17,11 @@ public class RegistrationPage {
             genderWrapper = $("#genterWrapper"),
             uploadPicture = $("#uploadPicture"),
             calendareInput = $("#dateOfBirthInput"),
-            subjectsInput = $("#subjectsInput")
+            subjectsInput = $("#subjectsInput"),
+            submit = $("#submit"),
+            hobbiesWrapper = $("#hobbiesWrapper"),
+            state = $("#state"),
+            city = $("#city")
              ;
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -29,6 +29,10 @@ public class RegistrationPage {
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
+
+        return this;
+    }
+    public RegistrationPage hidebanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -57,8 +61,8 @@ public class RegistrationPage {
         genderWrapper.$(byText(value)).click();
         return this;
     }
-    public RegistrationPage setUploadPicture(){
-        uploadPicture.uploadFromClasspath("Cat.jpg");
+    public RegistrationPage setUploadPicture(String value){
+        uploadPicture.uploadFromClasspath(value);
         return this;
     }
     public RegistrationPage setDateOfBirth(String day, String mouth, String year) {
@@ -67,7 +71,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setHobbiesWrapper(String value){
-        $("#hobbiesWrapper").$(byText(value)).click();
+        hobbiesWrapper.$(byText(value)).click();
         return this;
     }
     public RegistrationPage setSubjectsInput(String value){
@@ -75,16 +79,16 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setSubmit() {
-        $("#submit").click();
+        submit.click();
         return this;
     }
     public RegistrationPage setState(String value) {
-        $("#state").click();
+        state.click();
         $(byText(value)).click();
         return this;
     }
     public RegistrationPage setCity(String value) {
-        $("#city").click();
+        city.click();
         $(byText(value)).click();
         return this;
     }

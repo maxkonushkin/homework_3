@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class HomeTests extends TestBase{
 
@@ -14,6 +12,7 @@ public class HomeTests extends TestBase{
 
         registrationPage
                 .openPage()
+                .hidebanner()
                 .setFirstName("Maks")
                 .setLastName("Konushkin")
                 .setEmail("myemail@example.com")
@@ -21,7 +20,7 @@ public class HomeTests extends TestBase{
                 .setCurrentAddress("proizvodstvennai 13")
                 .setGender("Male")
                 .setDateOfBirth("11", "July", "1996")
-                .setUploadPicture()
+                .setUploadPicture("Cat.jpg")
                 .setSubjectsInput("Computer Science")
                 .setHobbiesWrapper("Sports")
                 .setState("Haryana")
