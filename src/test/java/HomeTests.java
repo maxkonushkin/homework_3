@@ -7,6 +7,17 @@ public class HomeTests extends TestBase{
 
     RegistrationPage registrationPage = new RegistrationPage();
 
+    String gender = RandomUtils.getRandomGender();
+    String userNumber = "7"+RandomUtils.getRandomUserNumber()+ "";
+    String dateOfBirth1 = RandomUtils.getRandomDateOfBirth1()+"";
+    String dateOfBirth2 = RandomUtils.getRandomDateOfBirth2();
+    String dateOfBirth3 = RandomUtils.getRandomDateOfBirth3()+"";
+    String uploadPicture = RandomUtils.getRandomJpg();
+    String subjectsInput = RandomUtils.getRandomSubjectsInput();
+    String hobbiesWrapper = RandomUtils.getRandomHobbiesWrapper();
+    String state = RandomUtils.getRandomState();
+    String сity = RandomUtils.getRandomCity();
+
     @Test
     void fillFormTest() {
 
@@ -16,29 +27,30 @@ public class HomeTests extends TestBase{
                 .setFirstName(TestData.firstname)
                 .setLastName(TestData.lastName)
                 .setEmail(TestData.email)
-                .setUserNumber("7"+RandomUtils.getRandomUserNumber()+ "")
+                .setUserNumber(userNumber)
                 .setCurrentAddress(TestData.currentAddress)
-                .setGender(RandomUtils.getRandomGender())
-                .setDateOfBirth(RandomUtils.getRandomDateOfBirth1()+"", RandomUtils.getRandomDateOfBirth2(), RandomUtils.getRandomDateOfBirth3()+"")
-                .setUploadPicture(RandomUtils.getRandomJpg())
-                .setSubjectsInput(RandomUtils.getRandomSubjectsInput())
-                .setHobbiesWrapper(RandomUtils.getRandomHobbiesWrapper())
-                .setState(RandomUtils.getRandomState())
-                //.setCity(RandomUtils.getRandomCity())
+                .setGender(gender)
+                .setDateOfBirth(dateOfBirth1, dateOfBirth2, dateOfBirth3)
+                .setUploadPicture(uploadPicture)
+                .setSubjectsInput(subjectsInput)
+                .setHobbiesWrapper(hobbiesWrapper)
+                .setState(state)
+                .setCity(сity)
                 .setSubmit()
                 ;
+
         //Проверки:
         registrationPage
-               // .checkResult("Student Name", "Maks Konushkin")
-              //  .checkResult("Student Email", TestData.email)
-                .checkResult("Gender", RandomUtils.getRandomGender())
-             //   .checkResult("Mobile", "9173173687")
-              //  .checkResult("Date of Birth", "11 July,1996")
-              //  .checkResult("Subjects", "Computer Science")
-               // .checkResult("Hobbies", RandomUtils.getRandomHobbiesWrapper())
-               // .checkResult("Picture", RandomUtils.getRandomJpg())
-               // .checkResult("Address", TestData.currentAddress)
-              //  .checkResult("State and City", "Haryana Panipat")
+                .checkResult("Student Name", TestData.firstname +" " +TestData.lastName)
+                .checkResult("Student Email", TestData.email)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Date of Birth", dateOfBirth1 + " "+ dateOfBirth2 + "," + dateOfBirth3)
+                .checkResult("Subjects", subjectsInput)
+                .checkResult("Hobbies", hobbiesWrapper)
+                .checkResult("Picture", uploadPicture)
+                .checkResult("Address", TestData.currentAddress)
+                .checkResult("State and City", state + " " + сity)
         ;
 
     }
@@ -50,15 +62,15 @@ public class HomeTests extends TestBase{
                 .openPage()
                 .setFirstName(TestData.firstname)
                 .setLastName(TestData.lastName)
-                .setUserNumber(RandomUtils.getRandomUserNumber()+ "")
-                .setGender(RandomUtils.getRandomGender())
+                .setUserNumber(userNumber)
+                .setGender(gender)
                 .setSubmit()
         ;
         //Проверки:
         registrationPage
-                .checkResult("Student Name", "Maks Konushkin")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9173173687")
+                .checkResult("Student Name", TestData.firstname +" " +TestData.lastName)
+                .checkResult("Gender", gender)
+                .checkResult("Mobile", userNumber)
         ;
 
     }
@@ -70,13 +82,13 @@ public class HomeTests extends TestBase{
                 .setFirstName(TestData.firstname)
                 // Проверяем обязательность поля setLastName
                 // .setLastName(lastName)
-                .setUserNumber(RandomUtils.getRandomUserNumber()+ "")
-                .setGender(RandomUtils.getRandomGender())
+                .setUserNumber(userNumber)
+                .setGender(gender)
                 .setSubmit()
         ;
         //Проверки:
         registrationPage
-                .checkResult("Student Name", "Maks")
+                .checkResult("Student Name", TestData.firstname)
         ;
 
     }

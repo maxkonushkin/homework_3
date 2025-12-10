@@ -1,8 +1,28 @@
 package utils;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
+
+
+    public static String getRandomState(){
+        String[] state = {"NCR"};
+        String randomstate = getRandomItemFromStringArray(state);
+
+        return randomstate;
+    }
+
+    public static String getRandomCity(){
+        String[] сity = {"Delhi","Gurgaon", "Noida"};
+        String randomсity = getRandomItemFromStringArray(сity);
+
+        return randomсity;
+    }
+
     public static String getRandomGender(){
         String[] genders = {"Male", "Female", "Other"};
         String randomGender = getRandomItemFromStringArray(genders);
@@ -23,14 +43,6 @@ public class RandomUtils {
 
         return randomhobbiesWrapper;
     }
-
-    public static String getRandomState(){
-        String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-        String randomstate = getRandomItemFromStringArray(state);
-
-        return randomstate;
-    }
-
 
     public static String getRandomSubjectsInput(){
         String[] subjectsInput = {"Physics", "Commerce", "Economics","Computer Science"};
