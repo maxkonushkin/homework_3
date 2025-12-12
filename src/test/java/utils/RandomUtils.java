@@ -1,87 +1,74 @@
 package utils;
 
-import java.util.concurrent.ThreadLocalRandom;
+import com.github.javafaker.Faker;
 
 public class RandomUtils {
+    static Faker faker = new Faker();
 
-
-    public static String getRandomState(){
-        String[] state = {"NCR"};
-        String randomstate = getRandomItemFromStringArray(state);
-
-        return randomstate;
+    public static String getRandomState() {
+        return faker.options().option(
+                "NCR", "Uttar Pradesh", "Haryana", "Rajasthan"
+        );
     }
 
-    public static String getRandomCity(){
-        String[] сity = {"Delhi","Gurgaon", "Noida"};
-        String randomсity = getRandomItemFromStringArray(сity);
-
-        return randomсity;
+    public static String getRandomCity(String state) {
+        return switch (state) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> null;
+        };
     }
 
-    public static String getRandomGender(){
-        String[] genders = {"Male", "Female", "Other"};
-        String randomGender = getRandomItemFromStringArray(genders);
-
-        return randomGender;
+    public static String getRandomGender() {
+        return faker.options().option(
+                "Male", "Female", "Other"
+        );
     }
 
-    public static String getRandomJpg(){
-        String[] Jpeg = {"Cat.jpg", "Dog.jpg"};
-        String randomJpeg = getRandomItemFromStringArray(Jpeg);
-
-        return randomJpeg;
+    public static String getRandomJpg() {
+        return faker.options().option(
+                "Cat.jpg", "Dog.jpg"
+        );
     }
 
-    public static String getRandomHobbiesWrapper(){
-        String[] hobbiesWrapper = {"Sports", "Reading", "Music"};
-        String randomhobbiesWrapper = getRandomItemFromStringArray(hobbiesWrapper);
-
-        return randomhobbiesWrapper;
+    public static String getRandomHobbiesWrapper() {
+        return faker.options().option(
+                "Sports", "Reading", "Music"
+        );
     }
 
-    public static String getRandomSubjectsInput(){
-        String[] subjectsInput = {"Physics", "Commerce", "Economics","Computer Science"};
-        String randomsubjectsInput = getRandomItemFromStringArray(subjectsInput);
-
-        return randomsubjectsInput;
-    }
-
-    public static int getRandomUserNumber(){
-        int userNumber = getRandomInt(111111111,999999999);
-
-        return userNumber;
+    public static String getRandomSubjectsInput() {
+        return faker.options().option(
+                "Physics", "Commerce", "Economics","Computer Science"
+        );
     }
 
     public static int getRandomDateOfBirth1(){
-        int dateOfBirth1 = getRandomInt(1,28);
-
-        return dateOfBirth1;
+        return faker.number().numberBetween(10, 28);
     }
 
-    public static String getRandomDateOfBirth2(){
-        String[] DateOfBirth2 = {"January", "February", "March","April", "May", "June", "July","August",
-                "September", "October", "November","December"};
-        String randomDateOfBirth2 = getRandomItemFromStringArray(DateOfBirth2);
-
-        return randomDateOfBirth2;
+    public static String getRandomMonth() {
+        return faker.options().option(
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+        );
     }
 
     public static int getRandomDateOfBirth3(){
-        int dateOfBirth3 = getRandomInt(1900,2020);
-
-        return dateOfBirth3;
+        return faker.number().numberBetween(1900, 2020);
     }
 
-    public static String getRandomItemFromStringArray(String[] stringArray){
-        int arrayLength = stringArray.length - 1;
-        int randomInt = getRandomInt(0, arrayLength);
-
-        return stringArray[randomInt];
-    }
-    public static  int getRandomInt(int min, int max){
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
+//    public static String getRandomItemFromStringArray(String[] stringArray){
+//        int arrayLength = stringArray.length - 1;
+//        int randomInt = getRandomInt(0, arrayLength);
+//
+ //         return stringArray[randomInt];
+//    }
+//    public static  int getRandomInt(int min, int max){
+//        return ThreadLocalRandom.current().nextInt(min, max + 1);
+//    }
 
 
 }

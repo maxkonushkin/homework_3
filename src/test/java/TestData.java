@@ -1,7 +1,5 @@
 import com.github.javafaker.Faker;
 
-import java.util.Locale;
-
 public class TestData {
     static Faker faker = new Faker();
 
@@ -9,4 +7,6 @@ public class TestData {
     static String lastName = faker.name().lastName();
     static String email = faker.internet().emailAddress();
     static String currentAddress = faker.address().fullAddress();
+    static String phoneNumber = faker.phoneNumber().subscriberNumber(10);
+
 }
